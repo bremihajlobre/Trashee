@@ -1,0 +1,12 @@
+﻿.row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#map {
+    height: 550px;
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}

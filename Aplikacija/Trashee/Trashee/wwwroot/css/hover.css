@@ -1,0 +1,23 @@
+﻿/*pomera stranicu desno i levo na pomeranje sidebara */
+
+.sidebarLeft:hover ~ .pocetna,
+.sidebarLeft:hover ~ .profile,
+.sidebarLeft:hover ~ .akcija,
+.sidebarLeft:hover ~ .mapa,
+.sidebarLeft:hover ~ .table,
+.sidebarLeft:hover ~ .rangLista {
+    margin-left: 155px;
+}
+
+.sidebarRight:hover ~ .pocetna,
+.sidebarRight:hover ~ .profile,
+.sidebarRight:hover ~ .akcija,
+.sidebarRight:hover ~ .mapa,
+.sidebarRight:hover ~ .table,
+.sidebarRight:hover ~ .rangLista {
+    margin-right: 155px;
+}
+
+.pocetna, .profile, .akcija, .mapa, .table, .rangLista {
+    transition: all .5s;
+}

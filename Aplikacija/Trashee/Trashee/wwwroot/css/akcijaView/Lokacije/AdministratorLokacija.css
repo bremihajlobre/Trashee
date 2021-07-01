@@ -1,0 +1,68 @@
+﻿.desnaStrana {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.statistika {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.desnaStrana form {
+    display: table;
+    font-size: 20px;
+}
+
+    .desnaStrana form p {
+        display: table-row;
+    }
+
+    .desnaStrana form label {
+        display: table-cell;
+    }
+
+    .desnaStrana form input {
+        display: table-cell;
+        margin-left: 30px;
+    }
+
+        .desnaStrana form input:focus {
+            background-color: #ddd;
+        }
+
+.slikaPreMapa {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.slikaPre {
+    display: flex;
+    flex-direction: column;
+}
+
+.pre {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.mapa {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+    .mapa .slikaMapa {
+        width: 200px;
+        height: 200px;
+    }
+
+.carousel-inner {
+    width: 200px;
+    height: 200px;
+}

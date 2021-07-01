@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Trashee.Pages.ProfilModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/profilView/AdministratorView.css" />
+
+<div class="profile">
+    <div class="pictureDescription">
+        <div class="profilePicture" style="background-image: url('images/@Model.Input.ProfileImagePath')">
+        </div>
+        <div class="buttonChooseUpload">
+            <form method="post" enctype="multipart/form-data">
+                <input asp-for="Input.ProfileImage" type="file" id="btnChoose" />
+                <label for="btnChoose">Izaberi</label>
+                <input type="submit" value="Postavi" asp-page-handler="UploadImage" id="btnSubmit">
+            </form>
+        </div>
+    </div>
+    <div class="tabDescription">
+        <input type="radio" name="tabs" id="tabPodaci" checked>
+        <label style="font-size:15px;" for="tabPodaci">Podaci</label>
+        <input type="radio" name="tabs" id="tabEdit">
+        <label style="font-size:15px;" for="tabEdit">Azuriraj</label>
+        <div class="tabs">
+            <div class="podaci">
+                <h2>Podaci</h2>
+                <form>
+                    <p><label>Ime </label><input asp-for="Input.Ime" disabled /></p><br />
+                    <p><label>Prezime </label><input asp-for="Input.Prezime" disabled /></p><br />
+                    <p><label>E-mail </label><input asp-for="Input.Email" disabled /></p><br />
+                    <p><label>Korisnicko ime </label><input asp-for="Input.Username" disabled /></p><br>
+                </form>
+            </div>
+            <div class="edit">
+                <h2>Azuriraj</h2>
+                <form method="post">
+                    <p><label>Ime </label><input asp-for="Input.Ime"></p><br />
+                    <p><label>Prezime </label><input asp-for="Input.Prezime"></p><br />
+                    <p><label>E-mail </label><input asp-for="Input.Email"></p><br />
+                    <p><label>Korisnicko ime </label><input asp-for="Input.Username"></p><br />
+                    <p><label>Sifra </label><input type="password" asp-for="Input.Password"></p><br />
+                    <p><label>Potvrdi sifru </label><input type="password" asp-for="Input.ConfirmPassword"></p>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    <div class="buttonSave">
+                        <button type="submit" asp-page-handler="edit" class="btnSave">Sacuvaj</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

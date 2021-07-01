@@ -1,0 +1,17 @@
+﻿@page
+@model Trashee.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/loginStranica.css" />
+
+<form method="post">
+    <div class="loginInput">
+        <div>Korisnicko ime <input class="korisnickoIme" type="text" placeholder="&#xf007; Korisnicko ime" style="font-family: Arial, FontAwesome;" required asp-for="@Model.Input.Username" /></div><br>
+        <div>Lozinka <input class="Lozinka" type="password" placeholder="&#xf023; Sifra" style="font-family: Arial, FontAwesome;" required asp-for="@Model.Input.Password" /></div><br>
+        <div class="buttonSubmitLogin">
+            <button type="submit" class="btnSubmitLogin"><span>Uloguj se</span></button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,140 @@
+﻿@page
+@model Trashee.Pages.TableModel
+@{
+    ViewData["Title"] = "Rang lista";
+}
+
+<link rel="stylesheet" href="~/css/rangLista.css" />
+
+<div class="rangLista">
+    <h1>Rang lista</h1>
+    <div class="table">
+        <table class="thead-dark">
+            <thead>
+                <tr>
+                    <th>
+                        Ime i prezime
+                    </th>
+                    <th>
+                        Datum registrovanja
+                    </th>
+                    <th>
+                        Broj prijavljenih lokacija
+                    </th>
+                    <th>
+                        Broj akcija na kojima je ucestvovao
+                    </th>
+                    <th>
+                        Poeni
+                    </th>
+                    <th>
+                        Medalje
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (TableModel.ViewModel view in Model.RangListaData)
+                {
+                    if (view != null)
+                    {
+                        <tr>
+                            <td>
+                                @view.ImeSkauta @view.PrezimeSkauta
+                            </td>
+                            <td>
+                                @view.DatumRegistrovanja.ToShortDateString()
+                            </td>
+                            <td>
+                                @view.BrojLokacija
+                            </td>
+                            <td>
+                                @view.BrojAkcija
+                            </td>
+                            <td>
+                                @view.Poeni
+                            </td>
+                            <td class="medalje">
+                                <div>
+                                    @switch (view.MedaljaAkcije)
+                                    {
+                                        case TableModel.MedaljeAkcije.Zlatna:
+                                            {
+                                                <a class="okvir"><i class="fas fa-award fa-3x" style="color: #ffd700"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeAkcije.Srebrna:
+                                            {
+                                                <a class="okvir"><i class="fas fa-award fa-3x" style="color: #c0c0c0"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeAkcije.Bronzana:
+                                            {
+                                                <a class="okvir"><i class="fas fa-award fa-3x" style="color: #cd7f32"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeAkcije.Nema:
+                                            {
+                                                <a class="okvir"><i class="fas fa-award fa-3x"></i></a>
+                                                break;
+                                            }
+                                    }
+                                </div>
+                                <div>
+                                    @switch (view.MedaljaLokacije)
+                                    {
+                                        case TableModel.MedaljeLokacije.Zlatna:
+                                            {
+                                                <a class="okvir"><i class="fas fa-crown fa-3x" style="color: #ffd700"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeLokacije.Srebrna:
+                                            {
+                                                <a class="okvir"><i class="fas fa-crown fa-3x" style="color: #c0c0c0"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeLokacije.Bronzana:
+                                            {
+                                                <a class="okvir"><i class="fas fa-crown fa-3x" style="color: #ffd700"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeLokacije.Nema:
+                                            {
+                                                <a class="okvir"><i class="fas fa-crown fa-3x"></i></a>
+                                                break;
+                                            }
+                                    }
+                                </div>
+                                <div>
+                                    @switch (view.MedaljaRegistovanje)
+                                    {
+                                        case TableModel.MedaljeRegistrovanje.Zlatna:
+                                            {
+                                                <a class="okvir"><i class="fas fa-medal fa-3x" style="color: #ffd700"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeRegistrovanje.Srebrna:
+                                            {
+                                                <a class="okvir"><i class="fas fa-medal fa-3x" style="color: #c0c0c0"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeRegistrovanje.Bronzana:
+                                            {
+                                                <a class="okvir"><i class="fas fa-medal fa-3x" style="color: #cd7f32"></i></a>
+                                                break;
+                                            }
+                                        case TableModel.MedaljeRegistrovanje.Nema:
+                                            {
+                                                <a class="okvir"><i class="fas fa-medal fa-3x"></i></a>
+                                                break;
+                                            }
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

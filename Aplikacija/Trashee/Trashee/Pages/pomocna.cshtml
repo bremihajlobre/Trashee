@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="akcije">
+    <div class="actonDisplay">
+        Ovde se prikazuju akcije, resene / neresene.
+    </div>
+    <div class="actionDescription">
+        <div class="buttonAction">
+            <button class="btnCreateAction" onclick="openFormAction()"><span>Napravi</span><br /><span> akciju</span></button>
+        </div>
+        <div class="popUpFormAction" id="popUpAction">
+            <form class="formAction">
+                <div class="buttonClosePopUpAction">
+                    <button class="btnCloseAction" onclick="closeFormAction()">
+                        <script src="~/js/akcije.js" asp-append-version="true"></script>
+                        <i class="fas fa-times fa-1x"></i>
+                    </button>
+                </div>
+                <div class="inputAkcija">
+                    <div for="mesto"><input type="text" class="mesto" placeholder="Mesto odrzavanja" required></div><br />
+                    <div for="datum"><input type="datetime-local" class="datum" required></div><br />
+                    <div for="broj"><input type="number" class="broj" placeholder="Broj potrebnih cistaca" required></div><br />
+                </div>
+                <div class="buttonSubmitAkcija" id="buttonSubmitAction">
+                    <div id="spin"></div>
+                    <button class="btnSubmitAkcija"><span>Dodaj akciju</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

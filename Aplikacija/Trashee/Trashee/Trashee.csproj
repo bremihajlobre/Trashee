@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="webfonts\**" />
+    <Content Remove="bin\**" />
+    <Content Remove="Migrations\**" />
+    <Content Remove="webfonts\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="webfonts\**" />
+    <None Remove="bin\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="webfonts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20200504214627_FirstRun.cs" />
+    <Compile Include="Migrations\20200504214627_FirstRun.Designer.cs" />
+    <Compile Include="Migrations\20200505181527_FinalFirstMigration.cs" />
+    <Compile Include="Migrations\20200505181527_FinalFirstMigration.Designer.cs" />
+    <Compile Include="Migrations\20200515163032_AddedDateReg.cs" />
+    <Compile Include="Migrations\20200515163032_AddedDateReg.Designer.cs" />
+    <Compile Include="Migrations\20200516140213_AddRazlogToZalba.cs" />
+    <Compile Include="Migrations\20200516140213_AddRazlogToZalba.Designer.cs" />
+    <Compile Include="Migrations\20200610194437_DodaoImagePathKorisnicima.cs" />
+    <Compile Include="Migrations\20200610194437_DodaoImagePathKorisnicima.Designer.cs" />
+    <Compile Include="Migrations\20200614123451_DodaoModelObavestenja.cs" />
+    <Compile Include="Migrations\20200614123451_DodaoModelObavestenja.Designer.cs" />
+    <Compile Include="Migrations\20200616111120_DodaoDatumKreiranjaObavestenja.cs" />
+    <Compile Include="Migrations\20200616111120_DodaoDatumKreiranjaObavestenja.Designer.cs" />
+    <Compile Include="Migrations\20200625154919_DodaoStatusUAkcija.cs" />
+    <Compile Include="Migrations\20200625154919_DodaoStatusUAkcija.Designer.cs" />
+    <Compile Include="Migrations\20200701104813_PromenaProperijaMape.cs" />
+    <Compile Include="Migrations\20200701104813_PromenaProperijaMape.Designer.cs" />
+    <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0-preview.3.20181.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0-preview.3.20181.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0-preview.3.20181.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink.Loader" Version="14.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-rc0002" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+
+
+</Project>

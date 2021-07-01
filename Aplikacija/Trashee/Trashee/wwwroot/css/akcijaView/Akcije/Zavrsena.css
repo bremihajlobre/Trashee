@@ -1,0 +1,53 @@
+﻿.desnaStrana {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.statistic {
+    text-align: center;
+}
+
+#tabelaUspesna {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 300px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.prePosle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.pre {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+}
+
+.slikaPre, .slikaPosle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-inner {
+    width: 200px;
+    height: 200px;
+}
+
+.posle {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+}
+
+.mapa {
+    text-align: center;
+}

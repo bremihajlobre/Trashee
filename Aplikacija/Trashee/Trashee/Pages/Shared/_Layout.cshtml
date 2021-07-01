@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trashee - Resi problem smeca u prirodi</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/sidebars.css" />
+    <link rel="stylesheet" href="~/css/akcije.css" />
+    <link rel="stylesheet" href="~/css/hover.css">
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <style>
+        .ui-autocomplete {
+            max-height: 250px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-width: 400px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <main role="main">
+            @if (!(Context.Request.RouteValues.Values.Contains("/Index") || Context.Request.RouteValues.Values.Contains("/Login")))
+            {
+                <div id="mySidebarLeft" class="sidebarLeft" onmouseover="toggleSidebarLeft()" onmouseout="toggleSidebarLeft()">
+                    <a href="/Pocetna"><i class="fas fa-globe-europe fa-2x"></i><span>Pocetna</span></a><br>
+                    <a href="/Mapa"><i class="fas fa-map-marked-alt fa-2x"></i><span>Mapa</span></a><br>
+                    <a href="/Akcije"><i class="fab fa-artstation fa-2x"></i><span>Akcije</span></a><br>
+                    <div class="buttonTrash">
+                        <button class="btnTrash" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                            <i class="fas fa-leaf fa-3x"></i><span>O Trashee</span>
+                        </button>
+                    </div>
+                    <a href="https://www.instagram.com/trashee.rs/"><i class="fab fa-instagram fa-2x"></i><span>Instagram</span></a><br>
+                    <a href="https://twitter.com/trasheedotrs"><i class="fab fa-twitter fa-2x"></i><span>Twitter</span></a>
+                </div>
+                <div id="mySidebarRight" class="sidebarRight" onmouseover="toggleSidebarRight()" onmouseout="toggleSidebarRight()">
+                    <a href="/Profile"><i class="fas fa-user fa-2x"></i><span>Profil</span></a><br />
+                    <form asp-controller="Account" asp-action="Logout">
+                        <div class="buttonIconLogout">
+                            <button type="submit" class="btnLogout"><i class="fas fa-power-off fa-4x"></i><span>Odjavi se</span></button><br />
+                        </div>
+                    </form>
+                    <a href="/RangLista"><i class="fas fa-trophy fa-2x"></i><span>Rang lista</span></a><br>
+                </div>
+            }
+
+            @RenderBody()
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">O Trashee</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="font-size: 20px;">
+                            Koliko puta ste krenuli negde da setate, bilo da je to planinarenje ili samo setnja po kraju i naisli na hrpu smeca
+                            koju su neodgovorni gradjani ostavili za sobom. Svima nama je palo na pamet da organizujemo ljude i da taj problem resimo,
+                            ali je uvek bio problem naci dovoljno veliki broj ljudi da se to ostvari. Ova aplikacija tezi da to omoguci. Obicnog
+                            gradjanina stavljamo u poziciju coveka koji moze da utice na izgled svog kraja bilo da samo zeli da prijavi problem
+                            ili da ucestvuje u resavanju tog problema. Sada konacno postoji mesto za to. Pridruzite se Trashee timu, pomognimo da
+                            nasa okolina ponovo bude onakva kakvom je pamtimo.
+                            <br />
+                            Trashee aplikacija je nastala iz zelje 3 mlada momka iz okoline Nisa da njihova prelepa okolina bude vracena u stanje
+                            kakvo zasluzuje. Pocela je kao studentski projekat mladih
+                            i neiskusnih programera punih entuzijazma i zelje za novim izazovima.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhozk3PMcMeuUf-QCvdvY06Eo8BxXZ1Oo&callback=initMap"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/sidebar.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿.pocetna {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    transition: 0.5s all;
+}
+
+    /*obavestenja*/
+
+    .pocetna .notificationDescription {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        height: 600px;
+        overflow: auto;
+        margin-right: 20px;
+    }
+
+.formObavestenje {
+    border-top: 1px dashed;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+    .formObavestenje:first-child {
+        border-top: none;
+    }
+
+    .formObavestenje p:first-child {
+        margin-top: 20px;
+    }
+
+    .formObavestenje p:last-child {
+        text-align: end;
+        margin-right: 20px;
+    }
+
+/*desna strana*/
+
+.pocetna .actionStatistic {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 390px;
+    text-align: center;
+}
+
+.thead-dark {
+    border: 1px solid #111;
+}
+
+    .thead-dark td {
+        vertical-align: middle;
+    }
+
+/*statistika*/
+
+.statistic {
+    display: flex;
+    flex-direction: column;
+}
+
+    .statistic form {
+        display: table;
+        font-size: 20px;
+        text-align: center;
+        padding: 10px;
+    }
+
+        .statistic form p {
+            display: table-row;
+        }
+
+        .statistic form label {
+            display: table-cell;
+        }
+
+        .statistic form input {
+            display: table-cell;
+            text-align: center;
+            background: none;
+            border: none;
+        }

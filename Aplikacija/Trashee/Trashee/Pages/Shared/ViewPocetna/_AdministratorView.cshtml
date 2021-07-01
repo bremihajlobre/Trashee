@@ -1,0 +1,231 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model PocetnaModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/pocetnaView/AdministratorView.css" />
+
+<div class="pocetna">
+    <div class="notificationDescription">
+        <form method="post">
+            @if (Model.Obavestenja.Count() > 0)
+            {
+                @foreach (Trashee.Models.Obavestenje obavestenje in Model.Obavestenja)
+                {
+                    <div class="formObavestenje">
+                        <p><b>@obavestenje.Organizator.Ime @obavestenje.Organizator.Prezime</b></p>
+                        <p><h5>@obavestenje.Sadrzaj</h5></p>
+                        <p>
+                            <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#deleteObavestenje_@obavestenje.ObavestenjeID">Obrisi obavestenje</button>
+                            <div class="modal fade" id="deleteObavestenje_@obavestenje.ObavestenjeID" tabindex="-1" role="dialog" aria-labelledby="obrisiObavestenjeLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="obrisiObavestenjeLabel">Da li ste sigurni da zelite da obrisete obavestenje?</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #df3535; font-size: 20px;"><i class="fas fa-times fa-1x"></i></button>
+                                            <button asp-route-id="@obavestenje.ObavestenjeID" asp-page-handler="DeleteObavestenje" class="btn btn-secondary" style="background-color: #17d85e; font-size: 20px;"><i class="fas fa-check fa-1x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                        <p>@obavestenje.DatumKreiranja</p>
+                    </div>
+                }
+            }
+        </form>
+    </div>
+    <div class="desnaStrana">
+        <div class="table">
+            <form method="get" class="filters">
+                @switch (Model.SelectedFilter)
+                {
+                    case PocetnaModel.FilterOptions.Svi:
+                        {
+                            <div class="btn-group btn-group-toggle">
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="filter" id="filterTable" value="Svi" onclick="this.form.submit()" checked />Svi
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="filter" id="filterTable" value="Organizator" onclick="this.form.submit()" />Organizator
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="filter" id="filterTable" value="Skaut" onclick="this.form.submit()" />Skaut
+                                </label>
+                                <input placeholder="&#xF002; Pretrazi" style="font-family:Arial, FontAwesome" name="SearchString" value="@Model.SearchString" />
+                                <button type="submit" value="Search" class="btn btn-secondary">Pretrazi</button>
+                            </div>
+                            break;
+                        }
+                    case PocetnaModel.FilterOptions.Organizator:
+                        {
+                            <div class="btn-group btn-group-toggle">
+                                <label class="btn btn-secondary ">
+                                    <input type="radio" name="filter" id="filterTable" value="Svi" onclick="this.form.submit()" />Svi
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="filter" id="filterTable" value="Organizator" onclick="this.form.submit()" checked />Organizator
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="filter" id="filterTable" value="Skaut" onclick="this.form.submit()" />Skaut
+                                </label>
+                                <input placeholder="&#xF002; Pretrazi" style="font-family:Arial, FontAwesome" name="SearchString" value="@Model.SearchString" />
+                                <button type="submit" value="Search" class="btn btn-secondary">Pretrazi</button>
+                            </div>
+                            break;
+                        }
+                    case PocetnaModel.FilterOptions.Skaut:
+                        {
+                            <div class="btn-group btn-group-toggle">
+                                <label class="btn btn-secondary ">
+                                    <input type="radio" name="filter" id="filterTable" value="Svi" onclick="this.form.submit()" />Svi
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" name="filter" id="filterTable" value="Organizator" onclick="this.form.submit()" />Organizator
+                                </label>
+                                <label class="btn btn-secondary active">
+                                    <input type="radio" name="filter" id="filterTable" value="Skaut" onclick="this.form.submit()" checked />Skaut
+                                </label>
+                                <input placeholder="&#xF002; Pretrazi" style="font-family:Arial, FontAwesome" name="SearchString" value="@Model.SearchString" />
+                                <button type="submit" value="Search" class="btn btn-secondary">Pretrazi</button>
+                            </div>
+                            break;
+                        }
+                }
+
+            </form>
+
+            <form method="post" class="tabela">
+                <table class="thead-dark">
+                    <tr>
+                        <th>Ime i prezime</th>
+                        <th>Korisnicko ime</th>
+                        <th>Vrsta korisnika</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    @if (Model.Skauti != null)
+                    {
+                        @foreach (Trashee.Models.Skaut skaut in Model.Skauti)
+                        {
+                            <tr>
+                                <td>
+                                    @skaut.Ime @skaut.Prezime
+                                </td>
+                                <td>
+                                    @skaut.Username
+                                </td>
+                                <td>
+                                    Skaut
+                                </td>
+                                <td>
+                                    <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#deleteSkauta_@skaut.Username">Obrisi</button>
+                                    <div class="modal fade" id="deleteSkauta_@skaut.Username" tabindex="-1" role="dialog" aria-labelledby="obrisiSkautaLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="obrisiSkautaLabel">Da li ste sigurni da zelite da obrisete skauta?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>@skaut.Ime @skaut.Prezime</div>
+                                                    <img style="height: 200px; width:200px" src="/images/@skaut.ImagePath" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal" style="background-color: #df3535; font-size: 20px;"><i class="fas fa-times fa-1x"></i></button>
+                                                    <button class="btn btn-secondary" asp-route-id="@skaut.SkautID" asp-page-handler="DeleteSkaut" style="background-color: #17d85e; font-size: 20px;"><i class="fas fa-check fa-1x"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                @*    Modal za brisanje skauta    *@
+                                <td>
+                                    <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#promoteSkauta_@skaut.Username">Unapredi</button>
+                                    <div class="modal fade" id="promoteSkauta_@skaut.Username" tabindex="-1" role="dialog" aria-labelledby="UnaprediSkautaLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="UnaprediSkautaLabel">Da li ste sigurni da zelite da unapredite skauta?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>@skaut.Ime @skaut.Prezime</div>
+                                                    <img style="height: 200px; width:200px" src="/images/@skaut.ImagePath" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal" style="background-color: #df3535; font-size: 20px;"><i class="fas fa-times fa-1x"></i></button>
+                                                    <button class="btn btn-secondary" asp-route-id="@skaut.SkautID" asp-page-handler="PromoteSkauta" style="background-color: #17d85e; font-size: 20px;"><i class="fas fa-check fa-1x"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                @*    Modal za unapredjivanje skauta u organizatora    *@
+                            </tr>
+                        }
+                    }
+
+                    @if (Model.Organizatori != null)
+                    {
+                        @foreach (Trashee.Models.Organizator organizator in Model.Organizatori)
+                        {
+                            <tr>
+                                <td>
+                                    @organizator.Ime @organizator.Prezime
+                                </td>
+                                <td>
+                                    @organizator.Username
+                                </td>
+                                <td>
+                                    Organizator
+                                </td>
+                                <td>
+                                    <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#deleteOrganizatora_@organizator.Username">Obrisi</button>
+
+                                    @*    Modal za brisanje organizatora    *@
+                                    <div class="modal fade" id="deleteOrganizatora_@organizator.Username" tabindex="-1" role="dialog" aria-labelledby="ObrisiOrganizatoraLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ObrisiOrganizatoraLabel">Da li ste sigurni da zelite da obrisete organizatora?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>@organizator.Ime @organizator.Prezime</div>
+                                                    <img style="height: 200px; width:200px" src="/images/@organizator.ImagePath" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button asp-route-id="@organizator.OrganizatorID" asp-page-handler="DeleteOrganizator" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </form>
+        </div>
+        <div class="statistic">
+            <form class="formStatistic">
+                <p><label>Odrzano akcija</label><input asp-for="@Model.viewModel.BrojAkcija" disabled /></p><br />
+                <p><label>Ucestvovalo cistaca</label><input asp-for="@Model.viewModel.UcestvovaloCistaca" disabled /></p><br />
+                <p><label>Sakupljeno smeca</label><input asp-for="@Model.viewModel.SakupljenoSmeca" disabled /></p><br />
+            </form>
+        </div>
+    </div>
+</div>

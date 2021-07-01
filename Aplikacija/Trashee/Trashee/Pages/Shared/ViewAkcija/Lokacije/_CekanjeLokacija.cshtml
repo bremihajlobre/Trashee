@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Trashee.Pages.AkcijaModel
+@{
+    Trashee.Models.Akcija akcija = (Trashee.Models.Akcija)ViewData["Akcija"];
+}
+
+<link rel="stylesheet" href="~/css/akcijaView/Lokacije/CekanjeLokacija.css" />
+
+<div class="statistic">
+    <h4>Prijavljeni korisnici</h4>
+</div>
+<div class="table" id="tabelaCekanje">
+    <table class="thead-dark">
+        <thead>
+            <tr>
+                <th>
+                    Ime
+                </th>
+                <th>
+                    Prezime
+                </th>
+                <th>
+                    Datum registrovanja
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Trashee.Models.Ucestvuje ucestvuje in akcija.Ucestvuje)
+            {
+                <tr>
+                    <td>
+                        @ucestvuje.Skaut.Ime
+                    </td>
+                    <td>
+                        @ucestvuje.Skaut.Prezime
+                    </td>
+                    <td>
+                        @ucestvuje.Skaut.DateReg
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="izaberiPotvrdi">
+    <div class="slikaPosle">
+        <h5>Posle akcije</h5>
+        <div class="slika"></div>
+    </div>
+    <div class="buttonChooseUpload">
+        <form>
+            <input id="akcijaId" value="@akcija.AkcijaID" hidden />
+            <input id="btnChoose" type="file" multiple/>
+            <label for="btnChoose">Izaberi</label>
+            <input type="button" value="Potvrdi" id="btnSubmit" onclick="ButtonZavrsiAkciju()">
+        </form>
+        <script>
+            function ButtonZavrsiAkciju() {
+                var formData = new FormData();
+
+
+                formData.append("akcijaId", $('#akcijaId').val());
+                for (let i = 0; i < $("#btnChoose")[0].files.length; i++) {
+                    formData.append("lokacijaImages", $("#btnChoose")[0].files[i]);
+                }
+
+                $.ajax({
+                    url: 'AkcijeView/UploadSlikePosle',
+                    type: 'POST',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.responseText);
+                            location.href = location.href;
+                        }
+                        else {
+                            alert(response.responseText)
+                        }
+                    }
+                });
+            }
+        </script>
+    </div>
+</div>

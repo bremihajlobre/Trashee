@@ -1,0 +1,67 @@
+﻿/*korisnickoIme i sifra na stranici Login*/
+
+.loginInput {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    top: 20px;
+    left: 35%;
+    background-color: #111;
+    position: absolute;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: right;
+    font-size: 20px;
+}
+
+    .loginInput input[type=text]:focus, .loginInput input[type=password]:focus {
+        background-color: #ddd;
+        border-color: #111;
+        outline: none;
+    }
+
+/*dugme Uloguj se na stranici Login*/
+
+.btnSubmitLogin {
+    border: none;
+    display: block;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #222;
+    padding: 17px 60px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 25px;
+}
+
+    .btnSubmitLogin span {
+        position: relative;
+        z-index: 1;
+    }
+
+    .btnSubmitLogin:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 490%;
+        width: 125%;
+        background: #d27878;
+        -webkit-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+        -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+        transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    }
+
+    .btnSubmitLogin:hover:after {
+        -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+        transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    }

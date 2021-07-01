@@ -1,0 +1,94 @@
+﻿.desnaStrana {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.statistic {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+#tabelaCekanje {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 280px;
+}
+
+.izaberiPotvrdi {
+    display: flex;
+    flex-direction: row;
+}
+
+.slikaPosle {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.slika {
+    height: 200px;
+    width: 200px;
+}
+
+.buttonChooseUpload {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+    .buttonChooseUpload [type="file"] {
+        height: 0;
+        overflow: hidden;
+        width: 0;
+    }
+
+    .buttonChooseUpload input:hover, .buttonChooseUpload label:hover {
+        text-decoration: underline;
+        box-shadow: 0 3px 25px;
+    }
+
+    .buttonChooseUpload [type="file"] + label {
+        background-color: black;
+        border: 2px solid #4A4A4A;
+        border-right: 2px solid #111;
+        border-bottom: 2px solid #4EC6DE;
+        border-radius: 10px;
+        color: #fff;
+        margin-right: 30px;
+        cursor: pointer;
+        font-size: 20px;
+        outline: none;
+        padding: 10px 20px;
+    }
+
+    .buttonChooseUpload [type="submit"] {
+        background-color: black;
+        border: 2px solid #4A4A4A;
+        border-right: 2px solid #111;
+        border-bottom: 2px solid #4EC6DE;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        margin-bottom: 1rem;
+        outline: none;
+        padding: 10px 20px;
+    }
+
+#btnSubmit {
+    background-color: black;
+    border: 2px solid #4A4A4A;
+    border-right: 2px solid #111;
+    border-bottom: 2px solid #4EC6DE;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 10px 20px;
+}

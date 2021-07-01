@@ -1,0 +1,190 @@
+﻿/*leftSidebar*/
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidebarLeft {
+    height: 100%;
+    width: 115px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    white-space: nowrap;
+}
+
+    .sidebarLeft a {
+        padding: 15px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidebarLeft a:hover {
+            color: #f1f1f1;
+            padding: 20px;
+            text-decoration: none;
+        }
+
+    .sidebarLeft span {
+        margin-left: 50px;
+        font-size: 25px;
+    }
+
+    .sidebarLeft:hover ~ .pocetna {
+        margin-left: 155px;
+    }
+
+.material-icons,
+.icon-text {
+    vertical-align: middle;
+}
+
+.material-icons {
+    padding-bottom: 3px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebarLeft {
+        padding-top: 15px;
+    }
+
+        .sidebarLeft a {
+            font-size: 18px;
+        }
+}
+
+/*rightSidebar*/
+
+.sidebarRight {
+    height: 100%;
+    width: 115px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+    white-space: nowrap;
+}
+
+    .sidebarRight a {
+        padding: 15px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidebarRight a:hover {
+            color: #f1f1f1;
+            padding: 20px;
+            text-decoration: none;
+        }
+
+    .sidebarRight span {
+        margin-left: 50px;
+        font-size: 25px;
+    }
+
+.material-icons,
+.icon-text {
+    vertical-align: middle;
+}
+
+.material-icons {
+    padding-bottom: 3px;
+}
+
+#main {
+    transition: margin-right .5s;
+    padding: 16px;
+    margin-right: 100px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebarRight {
+        padding-top: 15px;
+    }
+
+        .sidebarRight a {
+            font-size: 18px;
+        }
+}
+
+/*trash icon sidebarLeft*/
+
+.sidebarLeft button {
+    background: none;
+    border: none;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    transition: 0.3s;
+}
+
+.buttonTrash {
+    margin-bottom: 20px;
+}
+
+.btnTrash:hover {
+    color: #f1f1f1;
+    padding: 20px;
+}
+
+.btnTrash:focus {
+    outline: 0;
+}
+
+/*logout icon sidebarRight*/
+
+.sidebarRight .btnLogout {
+    margin: 10px 0 20px 0;
+}
+
+    .sidebarRight .btnLogout:hover {
+        color: #f1f1f1;
+        padding: 20px;
+    }
+
+    .sidebarRight .btnLogout:focus {
+        outline: 0;
+    }
+
+/*theme and language icon sidebarRight*/
+
+.sidebarRight button {
+    background: none;
+    border: none;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    transition: 0.3s;
+}
+
+.buttonTheme {
+    margin-bottom: 20px;
+}
+
+.buttonIconSidebar {
+    margin-top: 90px;
+}
+
+    .buttonIconSidebar button:hover {
+        color: #f1f1f1;
+        padding: 20px;
+    }
+
+    .buttonIconSidebar button:focus {
+        outline: 0;
+    }

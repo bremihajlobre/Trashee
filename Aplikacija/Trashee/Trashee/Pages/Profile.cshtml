@@ -1,0 +1,18 @@
+﻿@page
+@model Trashee.Pages.ProfilModel
+@{
+    ViewData["Title"] = "Profil";
+}
+
+@if (User.IsInRole("Skaut"))
+{
+    @await Html.PartialAsync("ViewProfil/_SkautView")
+}
+else if (User.IsInRole("Organizator"))
+{
+    @await Html.PartialAsync("ViewProfil/_OrganizatorView")
+}
+else if (User.IsInRole("Administrator"))
+{
+    @await Html.PartialAsync("ViewProfil/_OrganizatorView")
+}

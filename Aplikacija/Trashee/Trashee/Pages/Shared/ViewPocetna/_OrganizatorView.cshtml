@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Trashee.Pages.PocetnaModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/pocetnaView/OrganizatorView.css" />
+
+<div class="pocetna">
+    <div class="notificationDescription">
+        <div class="buttonCreateNotification">
+            <button class="btnCreateNotification" onclick="openFormNotification()"><span>Novo</span><br /><span>obavestenje</span></button><br />
+        </div>
+        <div class="popUpFormNotification" id="popUpNotification">
+            <form method="post" class="formNotification">
+                <div class="buttonClosePopUpNotification">
+                    <button type="button" class="btnClosePopUp" onclick="closeFormNotification()">
+                        <script src="~/js/pocetna.js" asp-append-version="true"></script>
+                        <i class="fas fa-times fa-1x"></i>
+                    </button>
+                </div>
+                <div><textarea asp-for="@Model.Obavestenje.Sadrzaj"></textarea></div>
+                <div class="buttonSubmitNotification" id="buttonSubmitNotification">
+                    <div id="spin"></div>
+                    <button type="submit" asp-page-handler="dodajObavestenje" class="btnSubmitNotification"><span>Dodaj obavestenje</span></button>
+                </div>
+            </form>
+        </div>
+        <div class="createdNotification" id="createdNotification">
+            @if (Model.Obavestenja.Count() > 0)
+            {
+                @foreach (Trashee.Models.Obavestenje obavestenje in Model.Obavestenja)
+                {
+                    <div class="formObavestenje">
+                        <p><b>@obavestenje.Organizator.Ime @obavestenje.Organizator.Prezime</b></p>
+                        <p><h5>@obavestenje.Sadrzaj</h5></p>
+                        <p>@obavestenje.DatumKreiranja</p>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="actionStatistic">
+        <div class="table">
+            @if (Model.Akcije.Count() > 0)
+            {
+                <table class="thead-dark">
+                    <tr>
+                        <th>
+                            Ime i prezime
+                        </th>
+                        <th>
+                            Broj prijavljenih korisnika
+                        </th>
+                        <th>
+                            Status akcije
+                        </th>
+                        <th>
+                            Datum odrzavanja akcije
+                        </th>
+                    </tr>
+                    @foreach (Trashee.Models.Akcija akcija in Model.Akcije)
+                    {
+                        <tr>
+                            <td>
+                                @akcija.OrgNaLok.Organizator.Ime @akcija.OrgNaLok.Organizator.Prezime
+                            </td>
+                            <td>
+                                @akcija.Ucestvuje.Count()
+                            </td>
+                            <td>
+                                @akcija.Status
+                            </td>
+                            <td>
+                                @akcija.OrgNaLok.DatumOrganizovanja
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+        <div class="statistic">
+            <form class="formStatistic">
+                <p><label>Odrzano akcija</label><input asp-for="@Model.viewModel.BrojAkcija" disabled /></p><br />
+                <p><label>Ucestvovalo cistaca</label><input asp-for="@Model.viewModel.UcestvovaloCistaca" disabled /></p><br />
+                <p><label>Sakupljeno smeca</label><input asp-for="@Model.viewModel.SakupljenoSmeca" disabled /></p><br />
+            </form>
+        </div>
+    </div>
+</div>

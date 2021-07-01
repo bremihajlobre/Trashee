@@ -1,0 +1,109 @@
+﻿.pocetna {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    transition: 0.5s all;
+}
+
+    .pocetna .notificationDescription {
+        display: flex;
+        flex-direction: column;
+        height: 600px;
+        width: 40%;
+        overflow: auto;
+        margin-right: 20px;
+    }
+
+.formObavestenje {
+    border-top: 1px dashed;
+    margin-right: 20px;
+}
+
+    .formObavestenje:first-child {
+        border-top: none;
+    }
+
+    .formObavestenje p:first-child {
+        margin-top: 20px;
+    }
+
+    .formObavestenje p:last-child {
+        text-align: end;
+    }
+
+/*desna strana*/
+
+.pocetna .desnaStrana {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+/*filteri*/
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.table {
+    overflow: auto;
+    height: 390px;
+    padding-right: 10px;
+}
+
+    .table input {
+        font-size: 20px;
+    }
+
+    .table #search {
+        width: 50px;
+    }
+
+    .table input:focus {
+        background-color: #ddd;
+        border-color: #111;
+        outline: none;
+    }
+
+    .table [name = "SearchString"] {
+        width: 200px;
+        margin-right: 20px;
+    }
+
+.thead-dark {
+    border: 1px solid #111;
+    text-align: center;
+}
+
+    .thead-dark td {
+        vertical-align: middle;
+    }
+
+/*statistika na desnoj strani*/
+
+.statistic {
+    display: flex;
+    flex-direction: column;
+}
+
+    .statistic form {
+        display: table;
+        font-size: 20px;
+        text-align: center;
+        padding: 10px;
+    }
+
+        .statistic form p {
+            display: table-row;
+        }
+
+        .statistic form label {
+            display: table-cell;
+        }
+
+        .statistic form input {
+            display: table-cell;
+            text-align: center;
+            background: none;
+            border: none;
+        }

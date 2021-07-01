@@ -1,0 +1,21 @@
+﻿@page
+@model Trashee.Pages.MapaModel
+@{
+    ViewData["Title"] = "Mapa";
+}
+
+<link rel="stylesheet" href="~/css/mapa.css">
+
+
+<div class="mapa">
+    <div class="row">
+        <h4>❗Izaberite lokaciju na mapi i dodajte slike deponija❗</h4>
+        <div id="map">
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/mapa.js" asp-append-version="true"></script>
+}

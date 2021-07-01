@@ -1,0 +1,391 @@
+﻿/*dizajn za stranicu Profil*/
+
+/*dizajn leve strane gde je slika i opis*/
+
+.profile {
+    display: flex;
+    flex-direction: row;
+}
+
+.pictureDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    margin-top: 50px;
+    margin-right: 40px;
+}
+
+    .pictureDescription .profilePicture {
+        margin-bottom: 50px;
+        width: 220px;
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+    }
+
+.buttonChooseUpload [type="file"] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+
+.buttonChooseUpload input:hover, .buttonChooseUpload label:hover {
+    text-decoration: underline;
+    box-shadow: 0 3px 25px;
+}
+
+.buttonChooseUpload [type="file"] + label {
+    background-color: black;
+    border: 2px solid #4A4A4A;
+    border-right: 2px solid #111;
+    border-bottom: 2px solid #4EC6DE;
+    border-radius: 10px;
+    color: #fff;
+    margin-right: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    outline: none;
+    padding: 10px 20px;
+}
+
+.buttonChooseUpload [type="submit"] {
+    background-color: black;
+    border: 2px solid #4A4A4A;
+    border-right: 2px solid #111;
+    border-bottom: 2px solid #4EC6DE;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 10px 20px;
+}
+
+/*Dizajn desne strane gde su tabovi*/
+
+/*Dizajn tabova na stranici Profile*/
+
+.tabDescription {
+    width: 55%;
+    margin-top: 30px;
+}
+
+    .tabDescription > input {
+        display: none;
+    }
+
+    .tabDescription > label {
+        color: white;
+        display: block;
+        float: left;
+        padding: 20px;
+        margin-right: 5px;
+        cursor: pointer;
+        transition: background-color .3s;
+    }
+
+        .tabDescription > label:hover,
+        .tabDescription > input:checked + label {
+            background: #4EC6DE;
+        }
+
+.tabs {
+    clear: both;
+    perspective: 600px;
+}
+
+    .tabs > div {
+        margin-right: 50px;
+        position: absolute;
+        border: 2px solid #4EC6DE;
+        padding: 10px 30px;
+        line-height: 1.4em;
+        opacity: 0;
+        transform: rotateX(-20deg);
+        transform-origin: top center;
+        transition: opacity .3s, transform 1s;
+        z-index: 0;
+    }
+
+.podaci, .medalje, .zalba, .statistika, .edit {
+    width: 500px;
+}
+
+#tabPodaci:checked ~ .tabs > div:nth-of-type(1),
+#tabMedalje:checked ~ .tabs > div:nth-of-type(2),
+#tabZalba:checked ~ .tabs > div:nth-of-type(3),
+#tabStatistika:checked ~ .tabs > div:nth-of-type(4),
+#tabEdit:checked ~ .tabs > div:nth-of-type(5) {
+    transform: rotateX(0);
+    opacity: 1;
+    z-index: 1;
+}
+
+@media screen and (max-width: 500px) {
+    .tabDescription {
+        width: 400px;
+    }
+
+        .tabDescription > label {
+            display: none
+        }
+}
+
+/*dizajn taba Podaci*/
+
+.podaci form {
+    font-size: 20px;
+    display: table;
+}
+
+    .podaci form p {
+        display: table-row;
+    }
+
+    .podaci form label {
+        display: table-cell;
+        text-align: center;
+    }
+
+    .podaci form input {
+        background: none;
+        border: none;
+        display: table-cell;
+        margin-left: 50px;
+    }
+
+        .podaci form input:focus {
+            background-color: #ddd;
+        }
+
+/*dizajn taba Medalja*/
+
+.medalje a {
+    color: #fff;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+    text-align: left;
+}
+
+li {
+    float: left;
+}
+
+ul.dropdownMedalje li a {
+    display: block;
+    padding: 20px 30px;
+}
+
+ul.medaljeNav {
+    z-index: 200;
+    display: none;
+    border: 2px solid #4EC6DE;
+    border-bottom-left-radius: 20px;
+}
+
+    ul.medaljeNav li {
+        float: none;
+    }
+
+
+        ul.medaljeNav li:last-child a {
+            border-bottom: none;
+        }
+
+ul.dropdownMedalje li:hover ul {
+    display: block;
+    background: #060606;
+}
+
+ul.dropdownMedalje li:hover a.okvir {
+    border: 2px solid #4EC6DE;
+    border-bottom: 1px solid #4EC6DE;
+    border-top-left-radius: 20px;
+    color: #fff;
+}
+
+/*popUp za medalje*/
+
+.dropdownTabMedalje {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+    .dropdownTabMedalje i {
+        border-bottom: 2px dashed #4EC6DE;
+        padding: 15px 15px;
+    }
+
+ul.dropdownMedalje li ul li:last-child i {
+    border-bottom: hidden;
+}
+
+.dropdownTabMedalje .popUpUslov {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 90%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+    .dropdownTabMedalje .popUpUslov::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+.dropdownTabMedalje:hover .popUpUslov {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*dizajn taba Zalba*/
+
+.tabZalba {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+    .tabZalba div {
+        color: #ADAFAE;
+    }
+
+    .tabZalba textarea {
+        height: 140px;
+    }
+
+    .tabZalba input:focus {
+        background-color: #ddd;
+    }
+
+    .tabZalba textarea:focus {
+        background-color: #ddd;
+    }
+
+    .tabZalba .buttonSend {
+        text-align: center;
+    }
+
+    .tabZalba .btnSend {
+        height: 50px;
+        width: 100px;
+        font-size: 20px;
+        border-radius: 10px;
+        background-color: black;
+        border-bottom: 2px solid #4EC6DE;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+        .tabZalba .btnSend:hover {
+            text-decoration: underline;
+            box-shadow: 0 3px 25px;
+        }
+
+    .tabZalba select {
+        width: 100%;
+    }
+
+    .tabZalba .selectProblem {
+        margin-bottom: 15px;
+    }
+
+    .tabZalba select:focus {
+        background-color: #ddd;
+    }
+
+/*dizajn taba Statistika*/
+
+.statistika form {
+    display: table;
+    font-size: 20px;
+}
+
+    .statistika form p {
+        display: table-row;
+    }
+
+    .statistika form label {
+        display: table-cell;
+        text-align: center;
+    }
+
+    .statistika form input {
+        background: none;
+        border: none;
+        display: table-cell;
+        margin-left: 30px;
+    }
+
+        .statistika form input:focus {
+            background-color: #ddd;
+        }
+
+/*dizajn taba Edit*/
+
+.edit form {
+    display: table;
+    font-size: 20px;
+}
+
+    .edit form p {
+        display: table-row;
+    }
+
+    .edit form label {
+        text-align: center;
+        display: table-cell;
+    }
+
+    .edit form input {
+        display: table-cell;
+        margin-left: 30px;
+    }
+
+        .edit form input:focus {
+            background-color: #ddd;
+        }
+
+.edit .buttonSave {
+    display: table-cell;
+    text-align: center;
+}
+
+.btnSave {
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: black;
+    border-bottom: 2px solid #4EC6DE;
+    color: white;
+    margin-bottom: 20px;
+}
+
+    .btnSave:hover {
+        text-decoration: underline;
+        box-shadow: 0 3px 25px;
+    }

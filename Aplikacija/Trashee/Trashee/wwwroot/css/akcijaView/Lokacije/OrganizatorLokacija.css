@@ -1,0 +1,85 @@
+﻿.desnaStrana {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.napraviAkciju {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20%;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.napraviAkciju input {
+    width: 200px;
+}
+
+form {
+    display: table;
+    font-size: 20px;
+}
+
+    form p {
+        display: table-row;
+    }
+
+    form label {
+        display: table-cell;
+    }
+
+    form input {
+        display: table-cell;
+        margin-left: 30px;
+    }
+
+        form input:focus {
+            background-color: #ddd;
+        }
+
+.dugmici {
+    text-align: center;
+}
+
+    .dugmici button {
+        text-align: center;
+        margin-right: 20px;
+        padding: 10px;
+        width: 150px;
+    }
+
+.slikaPreMapa {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.slikaPre {
+    display: flex;
+    flex-direction: column;
+}
+
+.pre {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.mapa {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+    .mapa .slikaMapa {
+        width: 200px;
+        height: 200px;
+    }
+
+.carousel-inner {
+    width: 200px;
+    height: 200px;
+}

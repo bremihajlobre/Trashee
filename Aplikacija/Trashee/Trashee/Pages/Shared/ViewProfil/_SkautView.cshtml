@@ -1,0 +1,229 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Trashee.Pages.ProfilModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/profilView/SkautView.css" />
+
+<div class="profile">
+    <div class="pictureDescription">
+        <div class="profilePicture" style="background-image: url('images/@Model.Input.ProfileImagePath')">
+        </div>
+        <div class="buttonChooseUpload">
+            <form method="post" enctype="multipart/form-data">
+                <input asp-for="Input.ProfileImage" type="file" id="btnChoose" />
+                <label for="btnChoose">Izaberi</label>
+                <input type="submit" value="Postavi" asp-page-handler="UploadImage" id="btnSubmit">
+            </form>
+        </div>
+    </div>
+    <div class="tabDescription">
+        <input type="radio" name="tabs" id="tabPodaci" checked>
+        <label style="font-size:15px;" for="tabPodaci">Podaci</label>
+        <input type="radio" name="tabs" id="tabMedalje">
+        <label style="font-size:15px;" for="tabMedalje">Medalje</label>
+        <input type="radio" name="tabs" id="tabZalba">
+        <label style="font-size:15px;" for="tabZalba">Zalba</label>
+        <input type="radio" name="tabs" id="tabStatistika">
+        <label style="font-size:15px;" for="tabStatistika">Statistika</label>
+        <input type="radio" name="tabs" id="tabEdit">
+        <label style="font-size:15px;" for="tabEdit">Azuriraj</label>
+        <div class="tabs">
+            <div class="podaci">
+                <h2>Podaci</h2>
+                <form>
+                    <p><label>Ime </label><input asp-for="Input.Ime" disabled /></p><br />
+                    <p><label>Prezime </label><input asp-for="Input.Prezime" disabled /></p><br />
+                    <p><label>E-mail </label><input asp-for="Input.Email" disabled /></p><br />
+                    <p><label>Korisnicko ime </label><input asp-for="Input.Username" disabled /></p><br>
+                </form>
+            </div>
+            <div class="medalje">
+                <h2>Medalje</h2>
+                <form>
+                    <nav>
+                        <ul class="dropdownMedalje">
+                            <li>
+                                @if (Model.Input.UkupnoPrisutan >= 300)
+                                {
+                                    <a class="okvir"><i class="fas fa-award fa-4x" style="color: #ffd700"></i></a>
+
+                                }
+                                else if (Model.Input.UkupnoPrisutan >= 200)
+                                {
+                                    <a class="okvir"><i class="fas fa-award fa-4x" style="color: #c0c0c0"></i></a>
+                                }
+                                else if (Model.Input.UkupnoPrisutan >= 100)
+                                {
+                                    <a class="okvir"><i class="fas fa-award fa-4x" style="color: #cd7f32"></i></a>
+                                }
+                                else
+                                {
+                                    <a class="okvir"><i class="fas fa-award fa-4x"></i></a>
+                                }
+
+                                <ul class="medaljeNav">
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-award fa-3x" style="color: #cd7f32"></i>
+                                            <span class="popUpUslov">Prisustvovao na 100 akcija</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-award fa-3x" style="color: #c0c0c0"></i>
+                                            <span class="popUpUslov">Prisustvovao na 200 akcija</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-award fa-3x" style="color: #ffd700"></i>
+                                            <span class="popUpUslov">Prisustvovao na 300 akcija</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                @if (Model.Input.BrojDanaClanstva > 1065)
+                                {
+                                    <a class="okvir"><i class="fas fa-medal fa-4x" style="color: #ffd700"></i></a>
+                                }
+                                else if (Model.Input.BrojDanaClanstva > 730)
+                                {
+                                    <a class="okvir"><i class="fas fa-medal fa-4x" style="color: #c0c0c0"></i></a>
+                                }
+                                else if (Model.Input.BrojDanaClanstva >= 365)
+                                {
+                                    <a class="okvir"><i class="fas fa-medal fa-4x" style="color: #cd7f32"></i></a>
+                                }
+                                else
+                                {
+                                    <a class="okvir"><i class="fas fa-medal fa-4x"></i></a>
+                                }
+                                <ul class="medaljeNav">
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-medal fa-3x" style="color: #cd7f32"></i>
+                                            <span class="popUpUslov">Clan Trashee tima 1 godinu</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-medal fa-3x" style="color: #c0c0c0"></i>
+                                            <span class="popUpUslov">Clan Trashee tima 2 godine</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-medal fa-3x" style="color: #ffd700"></i>
+                                            <span class="popUpUslov">Clan Trashee tima 3 godine</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                @if (Model.Input.PrijavioLokacije >= 300)
+                                {
+                                    <a class="okvir"><i class="fas fa-crown fa-4x" style="color: #ffd700"></i></a>
+                                }
+                                else if (Model.Input.PrijavioLokacije >= 200)
+                                {
+                                    <a class="okvir"><i class="fas fa-crown fa-4x" style="color: #c0c0c0"></i></a>
+                                }
+                                else if (Model.Input.PrijavioLokacije >= 100)
+                                {
+                                    <a class="okvir"><i class="fas fa-crown fa-4x" style="color: #ffd700"></i></a>
+                                }
+                                else
+                                {
+                                    <a class="okvir"><i class="fas fa-crown fa-4x"></i></a>
+                                }
+                                <ul class="medaljeNav">
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-crown fa-3x" style="color: #cd7f32"></i>
+                                            <span class="popUpUslov">Prijavio vise od 100 lokacija</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-crown fa-3x" style="color: #c0c0c0"></i>
+                                            <span class="popUpUslov">Prijavio vise od 200 lokacija</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdownTabMedalje">
+                                            <i class="fas fa-crown fa-3x" style="color: #ffd700"></i>
+                                            <span class="popUpUslov">Prijavio vise od 300 lokacija</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </form>
+            </div>
+            <div class="zalba">
+                <form method="post">
+                    <h2>Zalba</h2>
+                    <div class="tabZalba">
+                        <div>Pretrazi korisnika: </div><br />
+                        <input id="inputZalba" asp-for="Input.PrijavljeniSkautPodaci" type="text" placeholder="&#xF002; Pretrazi" style="font-family:Arial, FontAwesome"><br />
+                        <div>Izaberi problem: </div><br />
+                        <div class="selectProblem">
+                            <select asp-for="Zalba.Razlog">
+                                <option>Vredjanje</option>
+                                <option>Neaktivnost</option>
+                                <option>Sebicnost</option>
+                                <option>Ometa akciju</option>
+                            </select>
+                        </div>
+                        <div>Opisi zalbu: </div><br />
+                        <textarea asp-for="Zalba.OpisZalba"></textarea><br />
+                        <div class="buttonSend">
+                            <button type="submit" asp-page-handler="zalba" class="btnSend">Posalji</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="statistika">
+                <h2>Statistika</h2>
+                <form>
+                    <p><label>Prisutan na ukupno </label><input asp-for="Input.UkupnoPrisutan" disabled /></p><br />
+                    <p><label>Prijavio lokacija </label><input asp-for="Input.PrijavioLokacije" disabled /></p><br />
+                    <p><label>Član od:</label><input type="date" asp-for="Input.DateReg" disabled /></p><br />
+                </form>
+            </div>
+            <div class="edit">
+                <h2>Azuriraj</h2>
+                <form method="post">
+                    <p><label>Ime </label><input asp-for="Input.Ime"></p><br />
+                    <p><label>Prezime </label><input asp-for="Input.Prezime"></p><br />
+                    <p><label>E-mail </label><input asp-for="Input.Email"></p><br />
+                    <p><label>Korisnicko ime </label><input asp-for="Input.Username"></p><br />
+                    <p><label>Sifra </label><input type="password" asp-for="Input.Password"></p><br />
+                    <p><label>Potvrdi sifru </label><input type="password" asp-for="Input.ConfirmPassword"></p>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    <div class="buttonSave">
+                        <button type="submit" asp-page-handler="edit" class="btnSave">Sacuvaj</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#inputZalba").autocomplete({
+                source: 'api/postapi/search'
+            });
+        });
+    </script>
+}

@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/indexStranica.css" />
+
+<div class="formIndex">
+    <div class="buttonLogin">
+        <button class="btnLogin" onclick="window.location.href='/Login'"><span>Login</span></button><br>
+    </div>
+    <div class="buttonRegistration">
+        <button class="btnRegistration" onclick="openForm()"><span>Registracija</span></button>
+    </div>
+    <div class="popUpForm" id="popUpRegistration">
+        <form method="post" class="formRegistration">
+            <div class="buttonSubmitClose">
+                <button class="btnSubmitClose" onclick="closeForm()">
+                    <script src="~/js/indexStranica.js" asp-append-version="true"></script>
+                    <i class="fas fa-times fa-1x"></i>
+                </button><br>
+            </div>
+            <div class="inputRegistration">
+                <div for="ime"> <input asp-for="Skaut.Ime" type="text" class="ime" placeholder="Ime" required></div><br />
+                <div for="prezime"> <input asp-for="Skaut.Prezime" type="text" class="prezime" placeholder="Prezime" required></div><br />
+                <div for="email"> <input asp-for="Skaut.EMail" type="text" class="email" placeholder="Email" required></div><br />
+                <div for="username"> <input asp-for="Skaut.Username" type="text" class="username" placeholder="Username" required></div><br />
+                <div for="password"> <input asp-for="Skaut.Password" type="password" class="password" TextMode="password" placeholder="Password" required></div><br />
+            </div>
+            <div class="buttonSubmitRegistration" id="btnSubmitRegistration">
+                <div id="transform"></div>
+                <button asp-page-handler="register" type="submit" class="btnSubmitRegistration"><span>Registruj se</span></button>
+            </div>
+        </form>
+    </div>
+</div>

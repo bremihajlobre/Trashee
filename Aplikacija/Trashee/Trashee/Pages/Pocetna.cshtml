@@ -1,0 +1,18 @@
+﻿@page
+@model Trashee.Pages.PocetnaModel
+@{
+    ViewData["Title"] = "Pocetna";
+}
+
+@if (User.IsInRole("Skaut"))
+{
+    @await Html.PartialAsync("ViewPocetna/_SkautView")
+}
+else if (User.IsInRole("Organizator"))
+{
+    @await Html.PartialAsync("ViewPocetna/_OrganizatorView")
+}
+else if (User.IsInRole("Administrator"))
+{
+    @await Html.PartialAsync("ViewPocetna/_AdministratorView")
+}

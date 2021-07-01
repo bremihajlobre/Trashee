@@ -1,0 +1,249 @@
+﻿.pocetna {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    margin-left: 10px;
+    transition: 0.5s all;
+}
+
+    .pocetna .notificationDescription {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        margin-right: 20px;
+        align-items: center;
+    }
+
+/*button Novo obavestenje*/
+.btnCreateNotification {
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #222;
+    padding: 10px 50px;
+    box-shadow: 0 3px 25px;
+    border-radius: 10px;
+    border: none;
+}
+
+    .btnCreateNotification span {
+        position: relative;
+        z-index: 1;
+    }
+
+    .btnCreateNotification:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 560%;
+        width: 170%;
+        background: #949494;
+        border: none;
+        -webkit-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+        -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+        transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    }
+
+    .btnCreateNotification:hover:after {
+        -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+        transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    }
+
+/*popUp novo Obavestenja*/
+
+.popUpFormNotification {
+    display: none;
+    background-color: #111;
+    width: 100%;
+    text-align: center;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+    .popUpFormNotification textarea {
+        font-size: 20px;
+        width: 100%;
+        height: 150px;
+    }
+
+        .popUpFormNotification textarea:focus {
+            background: #ddd;
+        }
+
+/*button closePopUp*/
+
+.buttonClosePopUpNotification {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.btnClosePopUp {
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+    background-color: #3c3c3c;
+}
+
+    .btnClosePopUp:hover {
+        background-color: #d27878;
+        box-shadow: 0 0 10px 3px white;
+    }
+
+.popUpFormNotification {
+    display: none;
+    border-color: #111;
+}
+
+/*dugme Dodaj obavestenje*/
+
+.buttonSubmitNotification {
+    display: inline-flex;
+    width: 150px;
+    border: 2px solid #BFC0C0;
+    color: #BFC0C0;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.btnSubmitNotification {
+    height: 40px;
+    width: 150px;
+    background-color: #000;
+    border: 1px solid #BFC0C0;
+    color: white;
+}
+
+#buttonSubmitNotification {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+    #buttonSubmitNotification span {
+        position: relative;
+        transition: all .45s ease-Out;
+    }
+
+#spin {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    left: 70px;
+    top: 20px;
+    transform: rotate(0deg);
+    background: none;
+    position: absolute;
+    transition: all .5s ease-Out;
+}
+
+#buttonSubmitNotification:hover #spin {
+    width: 200%;
+    height: 500%;
+    opacity: 1;
+    left: -70px;
+    top: -70px;
+    background: #BFC0C0;
+    transform: rotate(80deg);
+}
+
+#buttonSubmitNotification:hover span {
+    color: #2D3142;
+    text-decoration: underline;
+}
+
+/*prikaz obavestenja*/
+
+.notificationDescription .createdNotification {
+    overflow: auto;
+    height: 450px;
+    width: 100%;
+    margin-top: 20px;
+    transition: all 2s;
+}
+
+.formObavestenje {
+    border-top: 1px dashed;
+    margin-right: 20px;
+}
+
+    .formObavestenje:first-child {
+        border-top: none;
+    }
+
+    .formObavestenje p:first-child {
+        margin-top: 20px;
+    }
+
+    .formObavestenje p:last-child {
+        text-align: end;
+        margin-right: 20px;
+    }
+
+/*desna strana pocetne*/
+
+.pocetna .actionStatistic {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 390px;
+    text-align: center;
+}
+
+.thead-dark {
+    border: 1px solid #111;
+}
+
+    .thead-dark td {
+        vertical-align: middle;
+    }
+
+/*statistika*/
+
+.actionStatistic .statistic {
+    display: flex;
+    flex-direction: column;
+}
+
+.statistic form {
+    display: table;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+    .statistic form p {
+        display: table-row;
+    }
+
+    .statistic form label {
+        display: table-cell;
+    }
+
+    .statistic form input {
+        display: table-cell;
+        text-align: center;
+        background: none;
+        border: none;
+    }

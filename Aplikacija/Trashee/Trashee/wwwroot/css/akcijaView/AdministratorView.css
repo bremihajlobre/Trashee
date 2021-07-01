@@ -1,0 +1,33 @@
+﻿.akcija {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+}
+
+    .akcija .levaStrana {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin-right: 20px;
+        padding-left: 10px;
+    }
+
+.table {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 500px;
+    text-align: center;
+}
+
+.thead-dark {
+    border: 1px solid #111;
+}
+
+    .thead-dark td {
+        vertical-align: middle;
+    }
+
+.formFilters {
+    margin-bottom: 10px;
+}

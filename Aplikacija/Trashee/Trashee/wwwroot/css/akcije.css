@@ -1,0 +1,170 @@
+﻿/*dizajn stranice Akcija*/
+
+.akcije {
+    display: flex;
+    flex-direction: row;
+}
+
+/*leva strana Akcija*/
+
+.actonDisplay {
+    position: relative;
+    margin-right: 40px;
+    width: 50%;
+    border: 3px solid #120495;
+}
+
+/*desna strana Akcija*/
+
+.actionDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin-top: 20px;
+}
+
+/*ovde je popUp sa strane Akcije*/
+
+.popUpFormAction {
+    display: none;
+    background-color: #111;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+    .popUpFormAction input {
+        font-size: 20px;
+        width: 80%;
+    }
+
+        .popUpFormAction input:focus {
+            background: #ddd;
+        }
+
+/*button napravi akciju*/
+
+.btnCreateAction {
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #222;
+    padding: 10px 70px;
+    box-shadow: 0 3px 25px;
+    border-radius: 10px;
+}
+
+    .btnCreateAction span {
+        position: relative;
+        z-index: 1;
+    }
+
+    .btnCreateAction:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 560%;
+        width: 165%;
+        background: #dd9438;
+        -webkit-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+        -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+        transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    }
+
+    .btnCreateAction:hover:after {
+        -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+        transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    }
+
+.buttonCloseAction {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.btnCloseAction {
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+    background-color: #3c3c3c;
+}
+
+    .btnCloseAction:hover {
+        background-color: #d27878;
+        box-shadow: 0 0 10px 3px white;
+    }
+
+/*button Submit Action*/
+
+.buttonSubmitAkcija {
+    display: inline-flex;
+    width: 150px;
+    border: 2px solid #BFC0C0;
+    color: #BFC0C0;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.btnSubmitAkcija {
+    height: 40px;
+    width: 150px;
+    background-color: #000;
+    border: 1px solid #BFC0C0;
+    color: white;
+}
+
+#buttonSubmitAction {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+    #buttonSubmitAction span {
+        position: relative;
+        transition: all .45s ease-Out;
+    }
+
+#spin {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    left: 70px;
+    top: 20px;
+    transform: rotate(0deg);
+    background: none;
+    position: absolute;
+    transition: all .5s ease-Out;
+}
+
+#buttonSubmitAction:hover #spin {
+    width: 200%;
+    height: 500%;
+    opacity: 1;
+    left: -70px;
+    top: -70px;
+    background: #BFC0C0;
+    transform: rotate(80deg);
+}
+
+#buttonSubmitAction:hover span {
+    color: #2D3142;
+    text-decoration: underline;
+}
